@@ -1,0 +1,38 @@
+.bigheaded {
+    min-height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .btn-watch-video {
+        font-size: 16px;
+        transition: 0.5s;
+        margin-left: 25px;
+        color: var(--color-secondary);
+        font-weight: 600;
+        i {
+            color: var(--color-primary);
+            font-size: 32px;
+            transition: 0.3s;
+            line-height: 0;
+            margin-right: 8px;
+        }
+        &:hover {
+            color: var(--color-primary);
+            i {
+                color: #633306;
+            }
+        }
+    }
+}
+@media (max-width: 640px) {
+    .bigheaded {
+        min-height: auto;
+        h2 {
+            font-size: 36px;
+        }
+        .btn-get-started,
+        .btn-watch-video {
+            font-size: 14px;
+        }
+    }
+}
+  

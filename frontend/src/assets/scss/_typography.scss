@@ -1,0 +1,238 @@
+/* Typography */
+
+body {
+  font-size: 1rem;
+  font-family: $type1-regular;
+  font-weight: initial;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $type1-medium;
+}
+p {
+  font-size: $default-font-size;
+}
+h1,
+.h1 {
+  font-size: 2.19rem;
+}
+h2,
+.h2 {
+  font-size: 1.88rem;
+}
+h3,
+.h3 {
+  font-size: 1.56rem;
+}
+h4,
+.h4 {
+  font-size: 1.13rem;
+}
+h5,
+.h5 {
+  font-size: 1rem;
+}
+h6,
+.h6 {
+  font-size: .9375rem;
+}
+p {
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+.display-1 {
+  font-size: 3.75rem;
+  @media (max-width: 991px) {
+    font-size: 3rem;
+  }
+}
+.display-2 {
+  font-size: 3.125rem;
+  @media (max-width: 991px) {
+    font-size: 2.5rem;
+  }
+}
+.display-3 {
+  font-size: 2.5rem;
+  @media (max-width: 991px) {
+    font-size: 2rem;
+  }
+}
+.display-4 {
+  font-size: 1.875rem;
+  @media (max-width: 991px) {
+    font-size: 1.5rem;
+  }
+}
+.display-5 {
+  font-size: 1.25rem;
+  @media (max-width: 991px) {
+    font-size: 1rem;
+  }
+}
+.blockquote {
+  padding: 1.25rem;
+  border: 1px solid $border-color;
+}
+
+address {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+//blockqoute color variations
+@each $color, $value in $theme-colors {
+  .blockquote-#{$color} {
+    @include blockquote($value);
+  }
+}
+.error-page {
+  h1 {
+    font-size: 12rem;
+    @media (max-width: 991px) {
+      font-size: 8rem;
+    }
+  }
+}
+.icon-lg {
+  font-size: 2.5rem;
+}
+.icon-md {
+  font-size: 1.875rem;
+}
+.icon-sm {
+  font-size: 1rem;
+}
+:root {
+  scroll-behavior: smooth;
+}
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+a {
+color: $color-primary;
+text-decoration: none;
+  &:hover {
+    color: $color-secondary;
+    text-decoration: none;
+  }
+}
+
+.form-control {
+  &:active,
+  &:focus {
+    border-color: $color-secondary; 
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; 
+  }
+}
+/*--------------------------------------------------------------
+# Sections & Section Header
+--------------------------------------------------------------*/
+section {
+  overflow: hidden;
+  padding: 20px 0;
+}
+.section-bg {
+  background-color: $section-bg;
+}
+.section-header {
+  text-align: center;
+  padding-bottom: 15px;
+  h2 {
+    font-size: 1.88rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    color: $color-secondary;
+    text-transform: uppercase;
+    font-family: $type1-medium;
+  }
+  p {
+    margin: 0;
+    font-size: $default-font-size;
+    font-weight: 400;
+    color: $color-secondary;
+    font-family: $type1-medium;
+    span {
+      color: $color-primary;
+    }
+  }
+}
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #ffffff36;
+  transition: all 0.6s ease-out;
+  width: 100%;
+  height: 100vh;
+  &:before,
+    &:after {
+    content: "";
+    position: absolute;
+    border: 4px solid $color-secondary;
+    border-radius: 50%;
+    -webkit-animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+  &:after {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  } 
+}
+@-webkit-keyframes animate-preloader {
+  0% {
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    opacity: 1;
+  }
+  100% {
+    width: 72px;
+    height: 72px;
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    opacity: 0;
+  }
+}
+@keyframes animate-preloader {
+  0% {
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    opacity: 1;
+  }
+  100% {
+    width: 72px;
+    height: 72px;
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    opacity: 0;
+  }
+}
+

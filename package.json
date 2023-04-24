@@ -1,0 +1,20 @@
+{
+  "name": "kognabo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node server && ng serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amasyll/kognabo.git"
+  },
+  "author": "Amadou sylla <Ahmadnourding@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amasyll/kognabo/issues"
+  },
+  "homepage": "https://github.com/amasyll/kognabo#readme"
+}

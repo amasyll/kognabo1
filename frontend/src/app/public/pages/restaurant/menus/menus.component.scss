@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+# Menu Section
+--------------------------------------------------------------*/
+
+.menu {
+    .tab-content {
+        .tab-header {
+            p {
+                font-size: 14px;
+                text-transform: uppercase;
+                color: #676775;
+                margin-bottom: 0;
+            }
+            h3 {
+                font-size: 36px;
+                font-weight: 600;
+                color: var(--color-primary);
+            }
+        }
+        .menu-item {
+            -moz-text-align-last: center;
+            text-align-last: center;
+            .menu-img {
+                padding: 0 60px;
+                margin-bottom: 15px;
+            }
+            h4 {
+                font-size: 22px;
+                font-weight: 500;
+                color: var(--color-secondary);
+                font-family: var(--font-secondary);
+                font-weight: 30px;
+                margin-bottom: 5px;
+            }
+            .ingredients {
+                font-family: var(--font-secondary);
+                color: #8d8d9b;
+                margin-bottom: 5px;
+            }
+            .price {
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--color-primary);
+            }
+        }
+    }
+}

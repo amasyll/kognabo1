@@ -1,0 +1,20 @@
+<section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img [src]="product.imageUrl" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-black">{{ product.title }}</h2>
+                <div class="mb-4">
+                    <markdown [data]="product.description"></markdown>
+                </div>
+                <p><strong class="text-primary h4">{{ product.price }}</strong></p>
+                <button  class="btn btn-sm btn-primary" (click)="onAddToCart()">Ajouter au panier</button>
+            </div>
+            <div class="col-md-6 d-flex">
+                <p>Company Infos</p>
+            </div>
+        </div>
+    </div>
+</section>

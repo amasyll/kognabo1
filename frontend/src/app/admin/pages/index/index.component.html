@@ -1,0 +1,191 @@
+
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-danger card-img-holder text-white">
+            <div class="card-body">
+                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Vente hebdomadaire
+                        <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">$ 15,0000</h2>
+                    <h6 class="card-text">Increased by 60%</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Demandes de la semaines 
+                        <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h4>
+                        <h2 class="mb-5">45,6334</h2>
+                        <h6 class="card-text">Decreased by 10%</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+                <div class="card bg-gradient-success card-img-holder text-white">
+                    <div class="card-body">
+                        <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                        <h4 class="font-weight-normal mb-3">
+                            Visitors Online 
+                            <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                        </h4>
+                        <h2 class="mb-5">95,5741</h2>
+                        <h6 class="card-text">Increased by 5%</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <h4 class="card-title float-left">Statistics des Ventes</h4>
+                        </div>
+                        <canvas  baseChart class="mt-4"
+                            [data]="chartData"
+                            [options]="chartOption"
+                            [type]="chartType">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Traffic Sources</h4>
+                        <canvas baseChart
+                            [data]="chartData"
+                            [options]="chartOption"
+                            type="radar">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Tickets Recents</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"> # </th>
+                                        <th scope="col"> Assignee </th>
+                                        <th scope="col"> Subject </th>
+                                        <th scope="col"> Status </th>
+                                        <th scope="col"> Last Update </th>
+                                        <th scope="col"> Tracking ID </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cart of carts; index as i">
+                                        <th scope="row">{{ i + 1}}</th>
+                                        <td>
+                                            <img src="assets/images/faces/face1.jpg" class="me-2" alt="image"> David Grey
+                                        </td>
+                                        <td> Fund is not recieved </td>
+                                        <td>
+                                            <label class="badge badge-gradient-success">{{ cart.status }}</label>
+                                        </td>
+                                        <td> {{ cart.date }} </td>
+                                        <td> {{ cart._Id }} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Publications Recentes</h4>
+                        <div class="d-flex">
+                            <div class="d-flex align-items-center me-4 text-muted font-weight-light">
+                            <i class="mdi mdi-account-outline icon-sm me-2"></i>
+                        <span>Amadou Sylla</span>
+                    </div>
+                    <div class="d-flex align-items-center text-muted font-weight-light">
+                        <i class="mdi mdi-clock icon-sm me-2"></i>
+                        <span>October 3rd, 2018</span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6 pe-1" *ngFor="let product of products">
+                        <img [src]="product.imageUrl" class="mt-2 mw-100 w-100 rounded" alt="image">
+                        <div class="container-fluid d-flex justify-content-between rounded section-bg">
+                            <a class="btn btn-outline-info border-0 icon-sm" [routerLink]="'/addmin/update/catalogue/' + product._Id">
+                                <i class="mdi mdi-lead-pencil"></i>
+                                <span class="d-none d-md-block">Modifier</span>
+                            </a>
+                            <button class="btn btn-outline-danger border-0 icon-sm" (click)="openModalVertically(content)">
+                                <i class="mdi mdi-delete-sweep"></i>
+                                <span class="d-none d-md-block">Spprimer</span>
+                            </button>
+                            <ng-template #content let-modal>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Suppression de &nbsp;{{ product.title }}&nbsp;</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Etes vous sur de vouloire suprimer &nbsp;<span class="text-primary">{{ product.title }}</span>&nbsp;?</strong></p> 
+                                    <p>Toutes les informations associée à ce produit seront definitivement supprimer.&nbsp;<span class="text-danger">Cette operation est irrévocable!</span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-light" ngbAutofocus (click)="modal.dismiss('Cross click')">Annuler</button>
+                                    <a type="button" class="btn btn-danger" [routerLink]="'/addmin/delete/' + product._Id" (click)="modal.close('Ok click')">Ok</a>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex mt-5 align-items-top">
+                    <!--<ngb-pagination></ngb-pagination>-->      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Project Status</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Name </th>
+                                <th> Due Date </th>
+                                <th> Progress </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> 1 </td>
+                                <td> Herman Beck </td>
+                                <td> May 15, 2015 </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
